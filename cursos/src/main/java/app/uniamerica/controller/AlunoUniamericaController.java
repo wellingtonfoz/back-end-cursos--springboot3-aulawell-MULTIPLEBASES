@@ -1,5 +1,7 @@
 package app.uniamerica.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.uniamerica.model.AlunoUniamerica;
+import app.uniamerica.entity.AlunoUniamerica;
 import app.uniamerica.service.AlunoUniamericaService;
 
 @Validated
@@ -28,6 +30,16 @@ public class AlunoUniamericaController {
 	public ResponseEntity<AlunoUniamerica> findByRA(@PathVariable String ra){
 		try {
 			AlunoUniamerica alunoUniamerica = this.alunoUniamericaService.findByRA(ra);
+			return new ResponseEntity<>(alunoUniamerica, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
+		}
+	}
+	
+	@GetMapping("/findAll")
+	public ResponseEntity<List<AlunoUniamerica>> findAll(){
+		try {
+			List<AlunoUniamerica> alunoUniamerica = this.alunoUniamericaService.findAll();
 			return new ResponseEntity<>(alunoUniamerica, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST );
