@@ -19,21 +19,21 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 @Configuration
 @EnableJpaRepositories(
 		basePackages = "app.repository", //colocar aqui o caminho do package dos REPOSITORIES desta configuração
-		entityManagerFactoryRef = "base1EntityManager")
+		entityManagerFactoryRef = "base1EntityManager") //atualizar o nome baseX
 public class Base1Config {
 
 	@Bean
 	@Primary //SOMENTE A CLASSE BASEXCONFIG DA BASE PRINCIPAL DO SISTEMA DEVE TER ESSA ANNOTATION. SE FOR SECUNDÁRIA, RETIRE. 
-	@ConfigurationProperties(prefix = "base1.datasource")
-	public DataSource base1DataSource() {
+	@ConfigurationProperties(prefix = "base1.datasource") //atualizar o nome baseX
+	public DataSource base1DataSource() { //atualizar o nome baseX
 		return DataSourceBuilder.create().build();
 	}
 
 	@Bean 
 	@Primary //SOMENTE A CLASSE BASEXCONFIG DA BASE PRINCIPAL DO SISTEMA DEVE TER ESSA ANNOTATION. SE FOR SECUNDÁRIA, RETIRE.
-	public LocalContainerEntityManagerFactoryBean base1EntityManager(
+	public LocalContainerEntityManagerFactoryBean base1EntityManager( //atualizar o nome baseX
 			EntityManagerFactoryBuilder builder,
-			@Qualifier("base1DataSource") DataSource dataSource) {
+			@Qualifier("base1DataSource") DataSource dataSource) { //atualizar o nome baseX
 		return builder
 				.dataSource(dataSource)
 				.packages("app.entity") //colocar aqui o caminho do package das ENTITIES desta configuração

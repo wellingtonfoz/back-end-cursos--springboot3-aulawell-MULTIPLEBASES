@@ -19,15 +19,15 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 public class Base2Config {
 	
 	@Bean
-	@ConfigurationProperties(prefix = "base2.datasource") //atualizar o numero da base dessa config
+	@ConfigurationProperties(prefix = "base2.datasource") //atualizar o nome baseX
 	public DataSource base2DataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean base2EntityManager(
+	public LocalContainerEntityManagerFactoryBean base2EntityManager( //atualizar o nome baseX
 			EntityManagerFactoryBuilder builder,
-			@Qualifier("base2DataSource") DataSource dataSource) { //atualizar o numero da base dessa config
+			@Qualifier("base2DataSource") DataSource dataSource) { //atualizar o nome baseX
 		return builder
 				.dataSource(dataSource)
 				.packages("app.uniamerica.entity") //colocar aqui o caminho do package das ENTITIES desta configuração
