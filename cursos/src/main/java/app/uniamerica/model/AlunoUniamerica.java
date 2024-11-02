@@ -1,4 +1,4 @@
-package app.entity;
+package app.uniamerica.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter		//para gerar os setters da entidade em tempo de execução
 @NoArgsConstructor	//para disponibilizar um construtor sem parâmetros
 @AllArgsConstructor	//para disponibilizar um construtor com todos os parâmetros
-@Table(name="nome_da_view_aqui")
+@Table(name="wiew_alunos_ativos")
 public class AlunoUniamerica {
 	
 	@Id //OBRIGATÓRIO - para indicar que é a chave primária da respectiva tabela no BD

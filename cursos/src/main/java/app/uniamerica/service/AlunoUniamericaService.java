@@ -1,12 +1,12 @@
-package app.service;
+package app.uniamerica.service;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.entity.AlunoUniamerica;
-import app.repository.AlunoUniamericaRepository;
+import app.uniamerica.model.AlunoUniamerica;
+import app.uniamerica.repository.AlunoUniamericaRepository;
 
 @Service
 public class AlunoUniamericaService {
